@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="device=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CALCULATOR</title>
+    <style>
+    html,body{
+      margin:0;
+      padding:0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      
+    }
+     body{
+       display:flex;
+       background-color:black;
+       align-items: center;
+       justify-content: center;
+       
+    
+  
+  
+      
+     }
+      .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-gap: 40px;
+  }
+       .buttons button{
+       width: 90px;
+       height: 40px;
+       border:none;
+       font-size: 20px;
+       transform: translate(180px,250px);
+       
+       cursor: pointer;
+       background: black;
+       color:white;
+       transition: 0.3s;
+        }
+        .buttons button:hover{
+          background-color:aqua;
+        }
+   /* .display{
+      background-color:black;
+      width:280px;
+      height: 40px;
+      font-size: 30px;
+    text-align: right;
+    margin-left: 40px;*/
+    .display {
+  background-color: black;
+  width: 380px;          /* bigger width so text doesn't cut */
+  height: 60px;          /* bigger height */
+  font-size: 35px;       /* big numbers */
+  text-align: right;
+  color: white;
+  border: none;
+  
+
+  transform: translate(-160px, -50px);  /* SAME X position as buttons */
+}
+
+    
+    
+      
+       
+       
+     
+     
+      
+      
+      
+    </style>
+  </head>
+  <body>
+   <div class="buttons" id="button">
+             <button onclick="clearbutton()">C</button>
+            <button onclick="del()">del</button>
+   
+       <button onclick="press('%')">%</button>
+          <button onclick="press('+')">+</button>
+    <button onclick="press('1')" >1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+   <button onclick="press('-')">-</button>
+     <button onclick="press('4')">4</button>
+     <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+           <button onclick="press('*')">×</button>
+         <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      
+          <button onclick="press('/')">/</button>
+      
+         <button onclick="press('.')">.</button>
+          <button onclick="press('0')">0</button>
+          <button onclick="press('**')">^</button>
+           <button onclick="result()">=</button>
+      
+   
+       </div>
+    
+  
+           
+           
+   <input type="text"class="display" id="display" disabled>
+        
+          
+  <script>
+       const display=document.getElementById('display');
+       function press(value) {
+         display.value += value;
+       }
+         function result() {
+           try{
+             display.value=eval(display.value);
+             
+           }catch {
+             display.value="error";
+           }
+           
+         }
+         
+         function del(){
+           display.value=display.value.slice(0,-1)
+         }
+         
+         function clearbutton(){
+           display.value="";
+         }
+         
+         
+    </script>
+       
+       
+       
+       
+       
+       
+  </body>
+  
+</html>
