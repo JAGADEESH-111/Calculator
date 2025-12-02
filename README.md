@@ -1,2 +1,0 @@
-# Calculator
-For developing skills
